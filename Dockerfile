@@ -1,12 +1,19 @@
 FROM accetto/xubuntu-vnc-novnc:lab
 
 # ===========================
+# Container labels
+LABEL maintainer="Hummingbird the Second"
+
+# ===========================
 # Switch to root user before install
 USER 0
 
 # ===========================
 # Environment Settings
 ENV DEBIAN_FRONTEND="noninteractive"
+
+# Arguments Settings
+ARG TZ=UTC
 
 # ===========================
 # Install mkvtoolnix
