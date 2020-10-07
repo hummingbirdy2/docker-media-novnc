@@ -1,6 +1,12 @@
 # docker-media-novnc
 
-A noVNC docker with bunch of useful tool for video mediabased on [accetto/xubuntu-vnc-novnc:lab](https://github.com/accetto/xubuntu-vnc-novnc/tree/master/docker/xubuntu-vnc-novnc).
+A VNC and noVNC docker with bunch of useful tool for video mediabased on [accetto/xubuntu-vnc-novnc:lab](https://github.com/accetto/xubuntu-vnc-novnc/tree/master/docker/xubuntu-vnc-novnc).
+
+[![badge docker hub link][badge-docker-hub]](https://hub.docker.com/r/hummingbirdy2/media-novnc)
+[![badge docker size][badge-docker-size]](https://hub.docker.com/r/hummingbirdy2/media-novnc)
+
+[![badge github link][badge-github]](https://github.com/hummingbirdy2/docker-media-novnc)
+[![badge licence][badge-license]](https://github.com/hummingbirdy2/docker-media-novnc)
 
 ## Embedded tools
 
@@ -76,7 +82,7 @@ To avoid it, disable all audio device: **Audio** > **Audio Device** > **Discard 
 
 ## How To...
 
-### Change Blu-Ray Region Code on VLC
+### ...Change Blu-Ray Region Code on VLC ?
 
 To select the Blu-Ray Region Code, open **Tools** > **Preferences**
 
@@ -84,4 +90,10 @@ To select the Blu-Ray Region Code, open **Tools** > **Preferences**
 
 Show all settings, after **Input / Codecs** > **Access modules** > **Blu-ray** > **Region code** > **Save**
 
-![Selection Region code](pictures/vlc_region_code_selection.jpg)
+![Region code Selection](pictures/vlc_region_code_selection.jpg)
+
+<!-- badges images -->
+[badge-docker-hub]: https://badgen.net/badge/link/hummingbirdy2%2Fmedia-novnc?label&icon=docker
+[badge-docker-size]: https://badgen.net/docker/size/hummingbirdy2/media-novnc?icon=docker&label=Image%20Size
+[badge-github]: https://badgen.net/badge/link/hummingbirdy2%2Fdocker-media-novnc?label&icon=github
+[badge-license]: https://badgen.net/github/license/hummingbirdy2/docker-media-novnc?icon=github
