@@ -58,7 +58,7 @@ RUN echo -e '\n'"MEDIAINFO: Install necessary packages" && \
   echo -e '\n'"MEDIAINFO: Add the repository + install" && \
   echo "deb http://mediaarea.net/repo/deb/ubuntu bionic main" > /etc/apt/sources.list.d/mediaarea.list && \
   apt-get update && \
-  apt-get install -y mediainfo-gui && \
+  apt-get install -y mediainfo-gui libmediainfo-dev && \
   rm -rf /var/lib/apt/lists/* /etc/apt/trusted.gpg.d/mediaarea.gpg.asc /etc/apt/sources.list.d/mediaarea.list
 
 # ===========================
