@@ -2,7 +2,9 @@ FROM accetto/xubuntu-vnc-novnc:lab
 
 # ===========================
 # Container labels
-LABEL maintainer="Hummingbird the Second"
+LABEL maintainer="Hummingbird the Second" \
+      name="remux-box" \
+      description="A noVNC docker with bunch of useful tool for video media."
 
 # ===========================
 # Switch to root user before install
