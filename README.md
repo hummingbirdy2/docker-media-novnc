@@ -1,6 +1,6 @@
 # docker-media-novnc
 
-A VNC and noVNC docker with bunch of useful tool for video mediabased on [accetto/xubuntu-vnc-novnc:lab](https://github.com/accetto/xubuntu-vnc-novnc/tree/master/docker/xubuntu-vnc-novnc).
+A VNC and noVNC docker with bunch of useful tool for video media based on [accetto/xubuntu-vnc-novnc:lab](https://github.com/accetto/xubuntu-vnc-novnc/tree/master/docker/xubuntu-vnc-novnc).
 
 [![badge docker hub link][badge-docker-hub]](https://hub.docker.com/r/hummingbirdy2/media-novnc)
 [![badge docker size][badge-docker-size]](https://hub.docker.com/r/hummingbirdy2/media-novnc)
@@ -11,10 +11,13 @@ A VNC and noVNC docker with bunch of useful tool for video mediabased on [accett
 ## Embedded tools
 
 - `vlc` : [VLC](https://www.videolan.org/vlc/).
-  - `libdvd-pkg` : [DVD-Video playing library](https://packages.ubuntu.com/focal/libdvd-pkg)
-  - `libbluray-bdj` : [Blu-ray Disc Java support library](https://packages.ubuntu.com/focal/libbluray-bdj)
+  - `libdvd-pkg` : [DVD-Video playing library](https://packages.ubuntu.com/focal/libdvd-pkg).
+  - `libbluray-bdj` : [Blu-ray Disc Java support library](https://packages.ubuntu.com/focal/libbluray-bdj).
 - `mkvtoolnix-gui` : [mkvtoolnix](https://mkvtoolnix.download/).
 - `mediainfo-gui` : [mediainfo](https://mediaarea.net/en/MediaInfo).
+- `VapourSynth + Editor` :
+  - [VapourSynth](https://github.com/vapoursynth/vapoursynth).
+  - [VapourSynth Editor](https://bitbucket.org/mystery_keeper/vapoursynth-editor).
 - `audacity` : [Audacity](https://www.audacityteam.org/).
 - `subtitleeditor` : [Subtitle Editor](https://github.com/kitone/subtitleeditor).
 - `ffmpeg` : [ffmpeg](https://ffmpeg.org/).
@@ -23,6 +26,7 @@ A VNC and noVNC docker with bunch of useful tool for video mediabased on [accett
 
 - No audio are available :mute:
 - `Subtitle Editor` can't open Blu-Ray Subttiltle file (`.sub`). And `Subtitle Edit` don't work smoothly on linux with wine (from my last test, if you know the good way to run, open a issues).
+- Sadly, vlc can't open all Blu-Ray menu :disappointed_relieved:
 
 ## Usage
 
@@ -62,23 +66,6 @@ In this instance `PUID=1000` and `PGID=1000`, to find yours use `id user` as bel
   $ id username
     uid=1000(dockeruser) gid=1000(dockergroup) groups=1000(dockergroup)
 ```
-
-## Known Issues
-
-### VLC error: "Audio output failed"
-
-At the start of a video, VLC will spam you this error:
-
-![VLC "Audio output failed" error](./pictures/vlc_audio_output_error_1.jpg)
-
-To avoid it, disable all audio device: **Audio** > **Audio Device** > **Discard all samples...**
-
-![VLC disable audio device](./pictures/vlc_audio_output_error_2.jpg)
-
-## TODO
-
-- [ ] Found a way to disable Audio Device on VLC by default
-- [ ] Add installed app to the desktop for lazy people like me
 
 ## How To...
 
