@@ -143,6 +143,32 @@ RUN echo -e '\n'"VAPOURSYNTH: Install necessary packages" && \
   rm -rf "$SOURCE"
 
 # ===========================
+# Install VapourSynth Editor
+# git: https://bitbucket.org/mystery_keeper/vapoursynth-editor
+# setup 101: https://www.l33tmeatwad.com/vapoursynth101/software-setup
+
+ARG VSEDITOR_VERSION=r19
+ARG VSEDITOR_SOURCE_URL=https://bitbucket.org/mystery_keeper/vapoursynth-editor/get/${VSEDITOR_VERSION}.tar.gz
+
+COPY root/usr/share/applications/vsedit.desktop /usr/share/applications/vsedit.desktop
+
+RUN echo -e '\n'"VS EDITOR: Compilation from source ($VSEDITOR_VERSION)" && \
+  export SOURCE="$(mktemp -d)" && \
+  curl -o "$SOURCE/tmp.tar.gz" -L $VSEDITOR_SOURCE_URL && \
+  tar -xvf "$SOURCE/tmp.tar.gz" -C "$SOURCE" && \
+  cd "$SOURCE/mystery_keeper-vapoursynth-editor-"*/pro && \
+  qmake -norecursive pro.pro CONFIG+=release && \
+  make && \
+  mv ../build/release-64bit-gcc/vsedit /usr/local/bin/ && \
+  mv ../build/release-64bit-gcc/vsedit-* /usr/local/bin/ && \
+  mv ../build/release-64bit-gcc/vsedit.svg /usr/share/pixmaps/ && \
+  cd && \
+  rm -rf "$SOURCE" && \
+  \
+  echo -e '\n'"VS EDITOR: Add Launcher on the desktop" && \
+  cp -v /usr/share/applications/*vsedit.desktop /home/headless/Desktop/vsedit.desktop
+
+# ===========================
 # Install vlc + lib for playback of Blu-Ray and DVD
 # HTG: https://www.howtogeek.com/240487/how-to-play-dvds-and-blu-rays-on-linux/
 
