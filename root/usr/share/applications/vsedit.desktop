@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=VapourSynth Editor
+Comment=Cross-platform editor for VapourSynth scripts.
+Icon=vsedit.svg
+Exec=vsedit
+Terminal=false
+Categories=Video;VideoEditor;VapourSynth;

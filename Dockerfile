@@ -191,8 +191,14 @@ COPY root/home/headless/.config/vlc /home/headless/.config/vlc
 RUN echo -e '\n'"VLC: Install vlc + BD and DVD libs" && \
   apt-get update && \
   apt-get install -y vlc libdvd-pkg libbluray-bdj && \
-  dpkg-reconfigure libdvd-pkg &&\
-  rm -rf /var/lib/apt/lists/*
+  dpkg-reconfigure libdvd-pkg && \
+  rm -rf /var/lib/apt/lists/* && \
+  \
+  echo -e '\n'"VLC: Add Launcher on the Desktop" && \
+  cp -v /usr/share/applications/*vlc.desktop /home/headless/Desktop/vlc.desktop && \
+  \
+  echo -e '\n'"VLC: Set permission for parameters files" && \
+  chmod -Rv 777 /home/headless/.config/vlc
 
 # ===========================
 # Install others tools
