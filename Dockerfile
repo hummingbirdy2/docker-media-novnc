@@ -18,6 +18,14 @@ ENV DEBIAN_FRONTEND="noninteractive"
 ARG TZ=UTC
 
 # ===========================
+# Remove useless Desktop launchers
+
+RUN echo -e '\n'"MISC: Remove useless desktop launchers" && \
+  rm -v /home/headless/Desktop/versionsticker.desktop \
+        /home/headless/Desktop/vim.desktop \
+        /home/headless/Desktop/vncviewer.desktop
+
+# ===========================
 # Install mkvtoolnix
 # mkvtoolnix: https://mkvtoolnix.download/downloads.html#ubuntu
 
@@ -34,7 +42,10 @@ RUN echo -e '\n'"MKVTOOLNIX: Install necessary packages" && \
   echo -e '\n'"MKVTOOLNIX: Install" && \
   apt-get update && \
   apt-get install -y mkvtoolnix mkvtoolnix-gui && \
-  rm -rf /var/lib/apt/lists/* /etc/apt/sources.list.d/mkvtoolnix.list
+  rm -rf /var/lib/apt/lists/* /etc/apt/sources.list.d/mkvtoolnix.list && \
+  \
+  echo -e '\n'"MKVTOOLNIX: Add Launcher on the desktop" && \
+  cp -v /usr/share/applications/*mkvtoolnix-gui.desktop /home/headless/Desktop/mkvtoolnix-gui.desktop
 
 # ===========================
 # Install mediainfo
@@ -59,7 +70,10 @@ RUN echo -e '\n'"MEDIAINFO: Install necessary packages" && \
   echo "deb http://mediaarea.net/repo/deb/ubuntu bionic main" > /etc/apt/sources.list.d/mediaarea.list && \
   apt-get update && \
   apt-get install -y mediainfo-gui libmediainfo-dev && \
-  rm -rf /var/lib/apt/lists/* /etc/apt/trusted.gpg.d/mediaarea.gpg.asc /etc/apt/sources.list.d/mediaarea.list
+  rm -rf /var/lib/apt/lists/* /etc/apt/trusted.gpg.d/mediaarea.gpg.asc /etc/apt/sources.list.d/mediaarea.list && \
+  \
+  echo -e '\n'"MEDIAINFO: Add Launcher on the desktop" && \
+  cp -v /usr/share/applications/*mediainfo-gui.desktop /home/headless/Desktop/mediainfo-gui.desktop
 
 # ===========================
 # Install VapourSynth
@@ -172,6 +186,8 @@ RUN echo -e '\n'"VS EDITOR: Compilation from source ($VSEDITOR_VERSION)" && \
 # Install vlc + lib for playback of Blu-Ray and DVD
 # HTG: https://www.howtogeek.com/240487/how-to-play-dvds-and-blu-rays-on-linux/
 
+COPY root/home/headless/.config/vlc /home/headless/.config/vlc
+
 RUN echo -e '\n'"VLC: Install vlc + BD and DVD libs" && \
   apt-get update && \
   apt-get install -y vlc libdvd-pkg libbluray-bdj && \
@@ -185,7 +201,17 @@ RUN echo -e '\n'"VLC: Install vlc + BD and DVD libs" && \
 RUN echo -e '\n'"OTHERS: Install others tools" && \
   apt-get update && \
   apt-get install -y audacity subtitleeditor && \
-  rm -rf /var/lib/apt/lists/*
+  rm -rf /var/lib/apt/lists/* && \
+  \
+  echo -e '\n'"OTHERS: Add Launchers on the Desktop" && \
+  cp -v /usr/share/applications/*audacity.desktop /home/headless/Desktop/audacity.desktop && \
+  cp -v /usr/share/applications/*subtitleeditor.desktop /home/headless/Desktop/subtitleeditor.desktop
+
+# ===========================
+# Set permission for desktop launchers
+
+RUN echo -e '\n'"MISC: Set permission for desktop launchers" && \
+  chmod -v 777 /home/headless/Desktop/*.desktop
 
 # ===========================
 # Switch back to default application user (non-root)
