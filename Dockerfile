@@ -201,6 +201,26 @@ RUN echo -e '\n'"VLC: Install vlc + BD and DVD libs" && \
   chmod -Rv 777 /home/headless/.config/vlc
 
 # ===========================
+# Install MakeMKV
+# dl: https://www.makemkv.com/download/
+# ppa-repository : https://launchpad.net/~heyarje/+archive/ubuntu/makemkv-beta
+
+RUN echo -e '\n'"MAKEMKV: Install necessary packages" && \
+  apt-get update && \
+  apt-get install -y --no-install-recommends software-properties-common && \
+  rm -rf /var/lib/apt/lists/* && \
+  \
+  echo -e '\n'"MAKEMKV: Install MakeMKV" && \
+  add-apt-repository -y ppa:heyarje/makemkv-beta && \
+  apt-get update && \
+  apt-get install makemkv-bin makemkv-oss && \
+  apt-get purge -y --auto-remove software-properties-common && \
+  rm -rf /var/lib/apt/lists/* && \
+  \
+  echo -e '\n'"MAKEMKV: Add Launcher on the Desktop" && \
+  cp -v /usr/share/applications/*makemkv.desktop /home/headless/Desktop/makemkv.desktop
+
+# ===========================
 # Install others tools
 # audacity: https://www.audacityteam.org/
 
