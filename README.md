@@ -11,17 +11,17 @@ A VNC and noVNC docker with bunch of useful tool for video media based on [accet
 ## Embedded tools
 
 - `vlc` : [VLC](https://www.videolan.org/vlc/).
-  - `libdvd-pkg` : [DVD-Video playing library](https://packages.ubuntu.com/focal/libdvd-pkg).
-  - `libbluray-bdj` : [Blu-ray Disc Java support library](https://packages.ubuntu.com/focal/libbluray-bdj).
-- `mkvtoolnix-gui` : [mkvtoolnix](https://mkvtoolnix.download/).
-- `mediainfo-gui` : [mediainfo](https://mediaarea.net/en/MediaInfo).
-- `MakeMKV` : [MakeMKV](https://www.makemkv.com/).
+  - `libdvd-pkg` : [DVD-Video playing library](https://packages.ubuntu.com/focal/libdvd-pkg)
+  - `libbluray-bdj` : [Blu-ray Disc Java support library](https://packages.ubuntu.com/focal/libbluray-bdj)
+- `mkvtoolnix-gui` : [mkvtoolnix](https://mkvtoolnix.download/)
+- `mediainfo-gui` : [mediainfo](https://mediaarea.net/en/MediaInfo)
+- `MakeMKV` : [MakeMKV](https://www.makemkv.com/)
 - `VapourSynth + Editor` :
-  - [VapourSynth](https://github.com/vapoursynth/vapoursynth).
-  - [VapourSynth Editor](https://bitbucket.org/mystery_keeper/vapoursynth-editor).
-- `audacity` : [Audacity](https://www.audacityteam.org/).
-- `subtitleeditor` : [Subtitle Editor](https://github.com/kitone/subtitleeditor).
-- `ffmpeg` : [ffmpeg](https://ffmpeg.org/).
+  - [VapourSynth](https://github.com/vapoursynth/vapoursynth)
+  - [VapourSynth Editor](https://bitbucket.org/mystery_keeper/vapoursynth-editor)
+- `audacity` : [Audacity](https://www.audacityteam.org/)
+- `subtitleeditor` : [Subtitle Editor](https://github.com/kitone/subtitleeditor)
+- `ffmpeg` : [ffmpeg](https://ffmpeg.org/)
 
 ## Limitations
 
