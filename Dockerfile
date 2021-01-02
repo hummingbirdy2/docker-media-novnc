@@ -217,6 +217,9 @@ RUN echo -e '\n'"MAKEMKV: Install necessary packages" && \
   apt-get purge -y --auto-remove software-properties-common && \
   rm -rf /var/lib/apt/lists/* && \
   \
+  echo -e '\n'"MAKEMKV: Add Direct Blu-ray playback with VLC (just in case)" && \
+  ln -s /usr/lib/x86_64-linux-gnu/libmmbd.so.0 /usr/lib/. && \
+  \
   echo -e '\n'"MAKEMKV: Add Launcher on the Desktop" && \
   cp -v /usr/share/applications/*makemkv.desktop /home/headless/Desktop/makemkv.desktop
 
