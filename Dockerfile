@@ -183,6 +183,27 @@ RUN echo -e '\n'"VS EDITOR: Compilation from source ($VSEDITOR_VERSION)" && \
   cp -v /usr/share/applications/*vsedit.desktop /home/headless/Desktop/vsedit.desktop
 
 # ===========================
+# ADD VapourSynth Plugin(s)
+# help 101: https://www.l33tmeatwad.com/vapoursynth101/software-setup#h.p_DFl7IqyzfW9a
+# ffms2: https://github.com/FFMS/ffms2
+
+ARG FFMS2_VERSION=2.40
+ARG FFMS2_SOURCE_URL=https://github.com/FFMS/ffms2/archive/${FFMS2_VERSION}.tar.gz
+
+RUN echo -e '\n'"VS PLUGIN - FFMS2 : Compilation from source ($VSEDITOR_VERSION)" && \
+  export SOURCE="$(mktemp -d)" && \
+  curl -o "$SOURCE/tmp.tar.gz" -L $FFMS2_SOURCE_URL && \
+  tar -xvf "$SOURCE/tmp.tar.gz" -C "$SOURCE" && \
+  cd "$SOURCE/ffms2-${FFMS2_VERSION}" && \
+  ./autogen.sh && \
+  ./configure && \
+  make && \
+  make install && \
+  cp -vL /usr/local/lib/libffms2.so /usr/local/lib/vapoursynth/libffms2.so && \
+  cd && \
+  rm -rf "$SOURCE"
+
+# ===========================
 # Install vlc + lib for playback of Blu-Ray and DVD
 # HTG: https://www.howtogeek.com/240487/how-to-play-dvds-and-blu-rays-on-linux/
 
